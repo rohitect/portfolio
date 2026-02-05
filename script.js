@@ -417,21 +417,6 @@ if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
 // Initialize
 // ================================
 document.addEventListener('DOMContentLoaded', () => {
-    // Hide scroll indicator after scrolling
-    const scrollIndicator = document.querySelector('.scroll-indicator');
-
-    if (scrollIndicator) {
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 100) {
-                scrollIndicator.style.opacity = '0';
-                scrollIndicator.style.pointerEvents = 'none';
-            } else {
-                scrollIndicator.style.opacity = '1';
-                scrollIndicator.style.pointerEvents = 'auto';
-            }
-        }, { passive: true });
-    }
-
     // Animate hero elements on load
     document.body.classList.add('loaded');
 });

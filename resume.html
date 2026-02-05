@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rohit Ranjan - Software Architect Resume</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 10px;
+            line-height: 1.5;
+            color: #1a1a1a;
+            background: #fff;
+        }
+
+        .resume {
+            display: grid;
+            grid-template-columns: 1fr 200px;
+            max-width: 850px;
+            margin: 0 auto;
+            min-height: 100vh;
+        }
+
+        @media print {
+            body {
+                font-size: 9px;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .resume {
+                max-width: 100%;
+            }
+            .no-print {
+                display: none !important;
+            }
+            @page {
+                margin: 0;
+                size: A4;
+            }
+        }
+
+        /* Main Content */
+        .main {
+            padding: 30px 25px 30px 35px;
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+
+        .header-photo {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .header-info h1 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1a365d;
+            margin-bottom: 2px;
+        }
+
+        .header-info .title {
+            font-size: 11px;
+            font-weight: 500;
+            color: #718096;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Sections */
+        .section {
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #c9a227;
+            margin-bottom: 12px;
+        }
+
+        /* Profile */
+        .profile ul {
+            padding-left: 18px;
+            color: #4a5568;
+        }
+
+        .profile li {
+            margin-bottom: 5px;
+        }
+
+        /* Jobs */
+        .job {
+            margin-bottom: 18px;
+            page-break-inside: avoid;
+        }
+
+        .job-header {
+            margin-bottom: 3px;
+        }
+
+        .job-title {
+            font-size: 13px;
+            font-weight: 700;
+            color: #1a1a1a;
+        }
+
+        .job-date {
+            font-size: 9px;
+            color: #c9a227;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 6px;
+        }
+
+        .job-desc {
+            color: #4a5568;
+            margin-bottom: 8px;
+            text-align: justify;
+        }
+
+        .project {
+            margin-bottom: 12px;
+        }
+
+        .project-title {
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 4px;
+        }
+
+        .project-desc {
+            color: #4a5568;
+            margin-bottom: 6px;
+            text-indent: 15px;
+            text-align: justify;
+        }
+
+        .project-meta {
+            font-size: 9px;
+            color: #4a5568;
+            margin-bottom: 4px;
+        }
+
+        .project ul {
+            padding-left: 18px;
+            color: #4a5568;
+        }
+
+        .project li {
+            margin-bottom: 3px;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            background: #1a365d;
+            color: #fff;
+            padding: 30px 20px;
+        }
+
+        .sidebar-section {
+            margin-bottom: 25px;
+        }
+
+        .sidebar-title {
+            font-size: 12px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 12px;
+        }
+
+        .sidebar-item {
+            font-size: 10px;
+            color: rgba(255,255,255,0.85);
+            margin-bottom: 4px;
+        }
+
+        .sidebar-item a {
+            color: rgba(255,255,255,0.85);
+            text-decoration: none;
+        }
+
+        /* Skills with bars */
+        .skill {
+            margin-bottom: 10px;
+        }
+
+        .skill-name {
+            font-size: 10px;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 4px;
+        }
+
+        .skill-bar {
+            height: 4px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .skill-fill {
+            height: 100%;
+            background: rgba(255,255,255,0.7);
+            border-radius: 2px;
+        }
+
+        /* Education in main */
+        .education-title {
+            font-size: 13px;
+            font-weight: 700;
+            color: #1a1a1a;
+        }
+
+        .education-date {
+            font-size: 9px;
+            color: #c9a227;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+
+        .education-desc {
+            color: #4a5568;
+        }
+
+        /* Print button */
+        .print-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #1a365d;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(26, 54, 93, 0.3);
+            transition: all 0.2s;
+        }
+
+        .print-btn:hover {
+            background: #2c5282;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <div class="resume">
+        <main class="main">
+            <!-- Header -->
+            <header class="header">
+                <img src="profile-photo.jpg" alt="Rohit Ranjan" class="header-photo">
+                <div class="header-info">
+                    <h1>Rohit Ranjan</h1>
+                    <p class="title">Software Architect</p>
+                </div>
+            </header>
+
+            <!-- Profile -->
+            <section class="section profile">
+                <h2 class="section-title">Profile</h2>
+                <ul>
+                    <li>Software Architect with 12+ years of experience across the full SDLC, specializing in distributed systems and AI-powered platforms.</li>
+                    <li>Built production AI products including an LLM-powered Conversational Platform for natural language system querying and an AI Legal Document Scanner for automated contract analysis.</li>
+                    <li>Extensive experience in Back-end Development using Java, Python, and Kotlin with expertise in microservices architecture and platform engineering.</li>
+                    <li>Hands-on experience with LLMs, RAG pipelines, AI Agents, and integrating AI capabilities into enterprise applications.</li>
+                    <li>Led infrastructure teams to build Internal Developer Platforms, reducing DevOps effort by 80-90% at org scale.</li>
+                    <li>Experience with Kubernetes, Docker, AWS, Prometheus, ArgoCD, and modern DevOps practices.</li>
+                    <li>Strong expertise in Mobile Development using Flutter and React Native, and Frontend using React and Angular.</li>
+                    <li>Passionate about system design, clean architecture, and mentoring teams to deliver high-quality software.</li>
+                </ul>
+            </section>
+
+            <!-- Employment History -->
+            <section class="section">
+                <h2 class="section-title">Employment History</h2>
+
+                <!-- Groww -->
+                <div class="job">
+                    <div class="job-header">
+                        <p class="job-title">Software Architect, Groww, Bangalore</p>
+                    </div>
+                    <p class="job-date">September 2020 — February 2026</p>
+                    <p class="job-desc">
+                        At Groww, I worked across the full technology stack, contributing to backend systems using Java, Python, and Kotlin; frontend development with Angular and React; and mobile applications using Flutter and React Native.
+                    </p>
+                    <p class="job-desc">
+                        I led a team of Infrastructure Developers to improve organization-wide infrastructure management and designed a centralized portal for managing infrastructure assets, reducing manual DevOps effort by approximately 80–90%.
+                    </p>
+                    <p class="job-desc">
+                        I also built an internal developer platform adopted by multiple teams to manage the full microservices lifecycle—from service creation and deployment to monitoring and analysis.
+                    </p>
+                    <p class="job-desc">
+                        Additionally, I collaborated closely with core business teams such as Onboarding and Credit. For the Onboarding team, I helped platformize a legacy system to deliver a seamless user experience. Within the Credit team, I worked across multiple verticals, including personal loans, loans against mutual funds, and collections.
+                    </p>
+                    <p class="job-desc">
+                        I developed an AI-powered Legal Document Scanner platform for the legal team to automatically scan and analyze vendor contracts. The platform uses AI to generate summaries highlighting clauses that are acceptable or not acceptable to Groww based on configurable legal standards. This pre-screening tool, still in active use, significantly reduces the manual effort required by the legal team to review vendor contracts.
+                    </p>
+                    <p class="job-desc">
+                        I also built an AI-powered Conversational Product—a unified chat interface leveraging LLMs that integrates with the codebase, databases, Prometheus logs and metrics, GitHub Actions, ArgoCD, and Kubernetes. This AI platform enables developers, engineering managers, and architects to query systems using natural language, debug issues, and understand how services are configured and operating.
+                    </p>
+                </div>
+
+                <!-- IVY Comptech -->
+                <div class="job">
+                    <div class="job-header">
+                        <p class="job-title">Senior System Analyst, IVY Comptech, Hyderabad</p>
+                    </div>
+                    <p class="job-date">July 2018 — September 2020</p>
+
+                    <div class="project">
+                        <p class="project-title">GVC Router</p>
+                        <p class="project-desc">
+                            The project was to build a middle-ware layer client-server to facilitate the migration of back-end service from a third party back-end services provider to in house back-end services. The role of the Router was to forward the incoming API Calls for either the primary or the secondary downstream servers based on specific conditions. The conditions can be based on the query parameters, headers, and body.
+                        </p>
+                        <p class="project-meta">Team Size - 1</p>
+                        <p class="project-meta">Tech Stack - Java, Vertx</p>
+                        <ul>
+                            <li>Was responsible for designing, building, testing, and deploying of this service.</li>
+                            <li>Carefully Selected the tech stack to be used to serve very High Network Traffic.</li>
+                            <li>Implemented event-based async logging the incoming and outgoing API calls for debugging purposes during migration.</li>
+                            <li>Implemented the NIO Based Client and Server to enable it to process the very high network traffic.</li>
+                            <li>Optimized the Verticles of the software to allow and Client and the server running on a different group of threads.</li>
+                            <li>Implemented central logging system using the ELK Stack</li>
+                        </ul>
+                    </div>
+
+                    <div class="project">
+                        <p class="project-title">PEG Command Center</p>
+                        <p class="project-desc">
+                            This project was to build a software to be used by the DevOps team for maintaining the server nodes w.r.t. certificate deploying, service deployment, service restarts, etc. Basically, this software allows the DevOps to run parallel commands on several server nodes at once and log the outputs.
+                        </p>
+                        <p class="project-meta">Team Size - 1</p>
+                        <p class="project-meta">Tech Stack - Kotlin, AngularJS</p>
+                        <ul>
+                            <li>Prepared Requirement documents with the DevOps Teams.</li>
+                            <li>Designed the HDL and LDL for the software with inputs from the DevOps teams.</li>
+                            <li>Implemented Co-routines based parallel processing to execute remote commands</li>
+                            <li>Generated reports for the task execution</li>
+                            <li>Created AngularJS based Frontend to allow the user to configure and add commands from the UI and execute it.</li>
+                        </ul>
+                    </div>
+
+                    <div class="project">
+                        <p class="project-title">Kubernetes Migration</p>
+                        <p class="project-desc">
+                            The idea of this project is to migrate the services from the server nodes based deployment to Kubernetes(Docker) based deployment. This is to allow better management, updates, and deployment of the services. This is also to facilitate quick duplicating of the whole environment on a need basis.
+                        </p>
+                        <p class="project-meta">Team Size - 1</p>
+                        <p class="project-meta">Tech Stack - Kubernetes, F5 LB, Java, Docker</p>
+                        <ul>
+                            <li>Successfully set up the Kubernetes environment to test the scaling, deployment and updating service features.</li>
+                            <li>Wrote a Java-based server to convert the existing services to the docker based services.</li>
+                            <li>Integrated f5 Hardware Load Balancer with Kubernetes to be used as an LB in the environment instead of software LB.</li>
+                            <li>Established the interaction between all the microservices based on DNS.</li>
+                            <li>Exposed the required Gateways to the external world.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- JanaCare -->
+                <div class="job">
+                    <div class="job-header">
+                        <p class="job-title">Software Developer, JanaMedTech (JanaCare)</p>
+                    </div>
+                    <p class="job-date">December 2016 — February 2018</p>
+
+                    <div class="project">
+                        <p class="project-title">Jana Care Server and Doctor Portal</p>
+                        <p class="project-desc">
+                            Janacare is a Product based company for providing users with the app to track their diabetic health over the period of time and helping them with emergency diabetic situations via chat. They also provided a hardware device for the users to measure their sugar level, HBA1c, etc from home and keeping track of it. They also provide a portal for the doctors to interact with the users for help.
+                        </p>
+                        <p class="project-meta">Team Size - 3</p>
+                        <p class="project-meta">Tech Stack - Python, Django, AngularJS, CSS, AWS, Postgres SQL</p>
+                        <ul>
+                            <li>Migrated their existing service to AWS EBS for better control and management</li>
+                            <li>Removed dead code in the project and optimized the duplicate codes</li>
+                            <li>Integrated with the client services like hospitals, etc</li>
+                            <li>Created Doctor Portal in AngularJS, where the doctor can interact with the user and track their progress.</li>
+                            <li>Worked on their Android App for adding profile based features.</li>
+                            <li>Wrote scripts on streamlining the automation build and deploying of the services on AWS.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- ThirdEye -->
+                <div class="job">
+                    <div class="job-header">
+                        <p class="job-title">Software Developer, ThirdEye Inc (UST Global Child Company)</p>
+                    </div>
+                    <p class="job-date">September 2014 — December 2016</p>
+
+                    <div class="project">
+                        <p class="project-title">API Container</p>
+                        <p class="project-desc">
+                            The project was to write a software layer responsible for exposing the underlying JAVA based services over Rest and Soap Endpoints at the same time. This software layer was responsible for communicating with around 200 odd microservices services and expose them to the clients/vendors. This also includes developing a dynamic API Playground for the exposed APIs from the container so that the clients/vendors can initially play with the APIs before integrating them.
+                        </p>
+                        <p class="project-meta">Team Size - 3</p>
+                        <p class="project-meta">Tech Stack - Java, Spring MVC Framework, Java CXF Framework, Swagger</p>
+                        <ul>
+                            <li>Was responsible for building an LLD for the API Container</li>
+                            <li>Cherry Picked the Frameworks to be used as per the requirements.</li>
+                            <li>Integrated on Spring MVC(Rest API) and CXF(Soap API)</li>
+                            <li>Implemented RMI to interact with the Micro-services.</li>
+                            <li>Worked on API Playground with Swagger to generate the proper automated documentation upon boot.</li>
+                            <li>Documented the steps for integrating any RMI based project and exposing services with API Container</li>
+                        </ul>
+                    </div>
+
+                    <div class="project">
+                        <p class="project-title">Fetch</p>
+                        <p class="project-desc">
+                            Fetch was a cross-platform app with Android and IOS native app using Xamarin. The app was responsible for tracking the progress of a pet dog after surgery or some medication. The app allowed the user to interact with the doctor via chat and video messages. It also generated the progress reports graphs on a weekly basis and rates the progress.
+                        </p>
+                        <p class="project-meta">Team Size - 2</p>
+                        <p class="project-meta">Tech Stack - Xamarin, C#, iOS, Android</p>
+                        <ul>
+                            <li>Developed the cross-platform Video Messaging Feature where the user can upload the pet's progress video.</li>
+                            <li>Implemented Weekly Progress graph in the App.</li>
+                            <li>Worked on interacting with the server in a generic way.</li>
+                            <li>Reduced the platform-specific code to only 20% and 80% of common shared code across the platforms</li>
+                        </ul>
+                    </div>
+
+                    <div class="project">
+                        <p class="project-title">Buddy Me</p>
+                        <p class="project-desc">
+                            The project is an Android App. It involves the users creating an activity event like cycling, party, badminton, etc. The user can then invite users to his event and interact with them. The invitees can then RSVP to the event or reject it. The user can add photos, description, place of the event for others to read. The people invited to this event would be able to share event photos and video post the event during the event for others to download.
+                        </p>
+                        <p class="project-meta">Team Size - 4</p>
+                        <p class="project-meta">Tech Stack - Android, Java</p>
+                        <ul>
+                            <li>Worked on the text chat feature of the App</li>
+                            <li>Worked on Event Notification feature for the App</li>
+                            <li>Worked on dynamic dashboard Screens for the events the user is part of.</li>
+                            <li>Worked on Integrating the google maps for displaying the snapshot and direction of the event location.</li>
+                            <li>Worked on keeping the event data offline so that the event details including the location, the description can be accessed at all times.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Valtech -->
+                <div class="job">
+                    <div class="job-header">
+                        <p class="job-title">Associate Software Developer, Valtech Pvt. Ltd.</p>
+                    </div>
+                    <p class="job-date">June 2013 — September 2014</p>
+
+                    <div class="project">
+                        <p class="project-title">Sun Power</p>
+                        <p class="project-desc">
+                            Sun Power is a US Based Solar Panel distributor Company. The project was focused on coming up with the Dashboard for their users to view the energy generated by the solar panel, energy consumption over the last several duration frames, and to provide quick help in case the solar panel wasn't working properly through a Troubleshoot wizard.
+                        </p>
+                        <p class="project-meta">Team Size - 5</p>
+                        <p class="project-meta">Tech Stack - HTML, JS, CSS, AngularJS, JQuery, Selenium, etc</p>
+                        <ul>
+                            <li>Co-Designed the HDL Design for the Website</li>
+                            <li>Implemented on the Angular JS Framework from scratch</li>
+                            <li>Wrote the core structure for the website including routing, caching, independent reusable modules, etc</li>
+                            <li>Created on Unit Testing for independent Angular Modules/Components.</li>
+                            <li>Co-Worked on Basic CSS for the Desktop Mode and the mobile mode</li>
+                            <li>Wrote selenium based Test Cases for the desired flows</li>
+                            <li>Wrote Automated scripts for generating daily automated performance reports.</li>
+                        </ul>
+                    </div>
+
+                    <div class="project">
+                        <p class="project-title">Comcast</p>
+                        <p class="project-desc">
+                            Its a US Based Video provider service through its android based TV Box. The project was to test its Android-based project with Unit Test cases. We had access to their APIs and we had to test the content on the screen versus the APIs response including the description per content like duration, actors in the video, rating, etc.
+                        </p>
+                        <p class="project-meta">Team Size - 3</p>
+                        <p class="project-meta">Tech Stack - Java, Android Studio, Selenium</p>
+                        <ul>
+                            <li>Converted the existing manual test cases to Automation Tests.</li>
+                            <li>Wrote automated scripts responsible for Generating Daily Test Reports</li>
+                            <li>Updating the test cases based on their feature updates</li>
+                            <li>Certified the app before every new release push</li>
+                            <li>Interacted with the app developers to understand the new features and coming up with in-depth Test cases</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Education -->
+            <section class="section">
+                <h2 class="section-title">Education</h2>
+                <p class="education-title">B.Tech., Guru Ghasidas Central University, Bilaspur (C.G.)</p>
+                <p class="education-date">July 2009 — May 2013</p>
+                <p class="education-desc">I completed my B.Tech in Computer Science and Engineering.</p>
+            </section>
+        </main>
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <section class="sidebar-section">
+                <h3 class="sidebar-title">Details</h3>
+                <p class="sidebar-item">Bangalore</p>
+                <p class="sidebar-item">India</p>
+                <p class="sidebar-item">8050700005</p>
+                <p class="sidebar-item"><a href="mailto:91.rohit@gmail.com">91.rohit@gmail.com</a></p>
+            </section>
+
+            <section class="sidebar-section">
+                <h3 class="sidebar-title">Links</h3>
+                <p class="sidebar-item"><a href="https://linkedin.com/in/rohitranjan1834">LinkedIn</a></p>
+                <p class="sidebar-item"><a href="https://github.com/rohitect">GitHub</a></p>
+            </section>
+
+            <section class="sidebar-section">
+                <h3 class="sidebar-title">Skills</h3>
+
+                <div class="skill">
+                    <p class="skill-name">Java</p>
+                    <div class="skill-bar"><div class="skill-fill" style="width: 95%"></div></div>
+                </div>
+
+                <div class="skill">
+                    <p class="skill-name">Python</p>
+                    <div class="skill-bar"><div class="skill-fill" style="width: 85%"></div></div>
+                </div>
+
+                <div class="skill">
+                    <p class="skill-name">Kotlin</p>
+                    <div class="skill-bar"><div class="skill-fill" style="width: 90%"></div></div>
+                </div>
+
+                <div class="skill">
+                    <p class="skill-name">LLMs / Gen AI</p>
+                    <div class="skill-bar"><div class="skill-fill" style="width: 80%"></div></div>
+                </div>
+
+                <div class="skill">
+                    <p class="skill-name">RAG</p>
+                    <div class="skill-bar"><div class="skill-fill" style="width: 75%"></div></div>
+                </div>
+
+                <div class="skill">
+                    <p class="skill-name">AI Agents</p>
+                    <div class="skill-bar"><div class="skill-fill" style="width: 75%"></div></div>
+                </div>
+
+                <div class="skill">
+                    <p class="skill-name">Flutter</p>
+                    <div class="skill-bar"><div class="skill-fill" style="width: 90%"></div></div>
+                </div>
+
+                <div class="skill">
+                    <p class="skill-name">React Native</p>
+                    <div class="skill-bar"><div class="skill-fill" style="width: 85%"></div></div>
+                </div>
+
+                <div class="skill">
+                    <p class="skill-name">Kubernetes</p>
+                    <div class="skill-bar"><div class="skill-fill" style="width: 85%"></div></div>
+                </div>
+
+                <div class="skill">
+                    <p class="skill-name">React / Angular</p>
+                    <div class="skill-bar"><div class="skill-fill" style="width: 85%"></div></div>
+                </div>
+
+                <div class="skill">
+                    <p class="skill-name">Docker / AWS</p>
+                    <div class="skill-bar"><div class="skill-fill" style="width: 80%"></div></div>
+                </div>
+
+                <div class="skill">
+                    <p class="skill-name">Git</p>
+                    <div class="skill-bar"><div class="skill-fill" style="width: 90%"></div></div>
+                </div>
+            </section>
+        </aside>
+    </div>
+
+    <button class="print-btn no-print" onclick="window.print()">
+        Save as PDF
+    </button>
+</body>
+</html>
