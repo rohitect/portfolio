@@ -35,6 +35,7 @@
                 font-size: 9px;
                 -webkit-print-color-adjust: exact;
                 print-color-adjust: exact;
+                background: linear-gradient(to right, #fff 76.5%, #1a365d 76.5%);
             }
             .resume {
                 max-width: 100%;
@@ -42,9 +43,17 @@
             .no-print {
                 display: none !important;
             }
+            .header-photo {
+                image-rendering: high-quality;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
             @page {
-                margin: 0;
+                margin: 20px 0 0 0;
                 size: A4;
+            }
+            @page :first {
+                margin: 0;
             }
         }
 
@@ -66,6 +75,12 @@
             height: 70px;
             border-radius: 50%;
             object-fit: cover;
+            object-position: center top;
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: high-quality;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            transform: translateZ(0);
         }
 
         .header-info h1 {
@@ -108,11 +123,11 @@
         /* Jobs */
         .job {
             margin-bottom: 18px;
-            page-break-inside: avoid;
         }
 
         .job-header {
             margin-bottom: 3px;
+            page-break-after: avoid;
         }
 
         .job-title {
@@ -131,12 +146,18 @@
 
         .job-desc {
             color: #4a5568;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             text-align: justify;
         }
 
         .project {
-            margin-bottom: 12px;
+            margin-bottom: 10px;
+            margin-top: 12px;
+            page-break-inside: avoid;
+        }
+
+        .project:first-child {
+            margin-top: 0;
         }
 
         .project-title {
@@ -267,7 +288,7 @@
         <main class="main">
             <!-- Header -->
             <header class="header">
-                <img src="profile-photo.jpg" alt="Rohit Ranjan" class="header-photo">
+                <img src="focused-hq.jpg" alt="Rohit Ranjan" class="header-photo">
                 <div class="header-info">
                     <h1>Rohit Ranjan</h1>
                     <p class="title">Software Architect</p>
