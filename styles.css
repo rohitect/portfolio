@@ -439,6 +439,36 @@ body:hover .cursor-glow {
     transform: translateY(-3px);
 }
 
+/* Hero Social Icons */
+.hero-social {
+    display: flex;
+    gap: 16px;
+    margin-top: 32px;
+}
+
+.social-icon {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border-light);
+    border-radius: 50%;
+    color: var(--text-secondary);
+    transition: all var(--transition-base);
+}
+
+.social-icon:hover {
+    border-color: var(--accent-primary);
+    color: var(--accent-primary);
+    transform: translateY(-3px);
+}
+
+.social-icon svg {
+    width: 20px;
+    height: 20px;
+}
+
 /* Hero Stats */
 .hero-stats {
     display: flex;
@@ -1182,6 +1212,9 @@ body:hover .cursor-glow {
     gap: 20px;
     padding: 20px 24px;
     text-decoration: none;
+    position: relative;
+    z-index: 10;
+    cursor: pointer;
     border-radius: 14px;
     transition: all var(--transition-base);
 }
@@ -1280,7 +1313,8 @@ body:hover .cursor-glow {
     }
 
     .hero .container {
-        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column;
         text-align: center;
     }
 
@@ -1297,13 +1331,23 @@ body:hover .cursor-glow {
         justify-content: center;
     }
 
+    .hero-social {
+        justify-content: center;
+    }
+
     .hero-visual {
-        display: none;
+        order: -1;
+        margin-bottom: 40px;
     }
 
     .hero-image-container {
-        width: 300px;
-        height: 360px;
+        width: 200px;
+        height: 240px;
+        margin: 0 auto;
+    }
+
+    .hero-image-decoration {
+        display: none;
     }
 
     .philosophy-content {
@@ -1373,8 +1417,21 @@ body:hover .cursor-glow {
 
     .hero {
         min-height: auto;
-        padding-top: 120px;
+        padding-top: 100px;
         padding-bottom: 60px;
+    }
+
+    .hero-visual {
+        margin-bottom: 30px;
+    }
+
+    .hero-image-container {
+        width: 160px;
+        height: 192px;
+    }
+
+    .hero-image-wrapper {
+        border-width: 3px;
     }
 
     .hero-badge {
@@ -1382,8 +1439,8 @@ body:hover .cursor-glow {
     }
 
     .hero-name {
-        font-size: 2.5rem;
-        margin-bottom: 24px;
+        font-size: 2.2rem;
+        margin-bottom: 20px;
     }
 
     .hero-tagline {
@@ -1507,12 +1564,25 @@ body:hover .cursor-glow {
         padding: 0 16px;
     }
 
+    .hero-visual {
+        margin-bottom: 24px;
+    }
+
+    .hero-image-container {
+        width: 140px;
+        height: 168px;
+    }
+
     .hero-name {
-        font-size: 2rem;
+        font-size: 1.8rem;
+    }
+
+    .hero-tagline {
+        font-size: 1rem;
     }
 
     .hero-stats {
-        gap: 24px;
+        gap: 20px;
     }
 
     .stat-number {
